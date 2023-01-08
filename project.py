@@ -17,7 +17,7 @@ try:
     user_name = input("Пожалуйста введите ваше имя: ")
     # Получение счета игрока
     score = int(get_user_score(user_name))
-    # Проверка игрока
+    # Проверка нового игрока
     if score == -1:
         new_user = True
         score = 0
@@ -38,19 +38,22 @@ try:
             game = input("Выбери игру: Math Game (1) или Binary Game (2)")
 
         num_promt = input("\nКакое кол-во вопросов выберете? (от 1 до 10) ")
-        # Отлов недопустимого ввода кол-ва вопросов
+        # Проверка ввода на число
         while True:
             try:
                 num = int(num_promt)
                 break
             except:
-                print("Не допустимое число.")
+                print("Не допустимое значение.")
                 print('Попробуйте снова:')
                 num_promt = input("\nКакое кол-во вопросов выберете? (от 1 до 10)")
         # Запуск игры Math Game
         if game == '1':
+            # Передаем для генерации кол-во вопросов
             mg.no_of_questions = num
+            # Выводим инструкцию к игре
             print_instructions(math_instructions)
+            # Добавление очков за игру
             score += mg.generate_questions()
         else:
             # Запуск игры Binary Game

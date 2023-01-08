@@ -12,7 +12,7 @@ class Game:
         return self._no_of_questions
 
     @no_of_questions.setter
-    # Добавляем сеттер, строгие свойства
+    # Свойство для установки пользователем ограниченного количество вопросов в игре (1-10)
     def no_of_questions(self, value):
         if value < 1:
             self._no_of_questions = 1
@@ -31,7 +31,7 @@ class BinaryGame(Game):
     def generate_questions(self):
         # Счет игрока
         score = 0
-        # no_of_questions кол-во вопросов заданых игроком
+        # no_of_questions кол-во вопросов выбранных игроком
         for i in range(self.no_of_questions):
             # Генерация случайного числа от 1 до 100
             binary = randint(1, 100)
@@ -68,7 +68,7 @@ class MathGame(Game):
             3: '*',
             4: '**',
         }
-        # no_of_questions кол-во вопросов заданых игроком
+        # no_of_questions кол-во вопросов выбранных игроком
         for i in range(self.no_of_questions):
             # Заполнение списка случайными числами от 1 до 9
             for j in (0, 4):
